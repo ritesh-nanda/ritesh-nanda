@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritesh Nanda — Supply Chain & Operations</title>
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;1,300&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Font overrides */
+.hero-name {
+  font-family: 'Roboto', sans-serif !important;
+  letter-spacing: -0.02em;
+  font-style: normal;
+}
+.section-title, .exp-company-name, .exp-loc-name,
+.exp-card-name, .proj-name, .edu-degree, .footer-headline {
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+</style>
+<style>
+:root {
+  --bg: #050508;
+  --gold: #d4a843;
+  --gold2: #f0cc7a;
+  --ember: #e85d2a;
+  --text: #ece8df;
+  --muted: #7a7670;
+  --border: #1e1e24;
+  --surface: #0d0d12;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(212,168,67,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%,-50%);
+  transition: all 0.12s ease;
+}
+
+body:has(a:hover) .cursor,
+body:has(button:hover) .cursor { width: 20px; height: 20px; }
+body:has(a:hover) .cursor-ring,
+body:has(button:hover) .cursor-ring { width: 60px; height: 60px; border-color: var(--gold); }
+
+/* CANVAS BACKGROUND */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* GRAIN */
+.grain {
+  position: fixed;
+  inset: -200%;
+  width: 400%; height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+  animation: grainMove 0.5s steps(2) infinite;
+}
+
+@keyframes grainMove {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-2%,-3%); }
+  50% { transform: translate(3%,1%); }
+  75% { transform: translate(-1%,3%); }
+  100% { transform: translate(2%,-1%); }
+}
+
+/* MAIN WRAPPER */
+.wrapper { position: relative; z-index: 2; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4rem;
+  transition: all 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-logo:hover::after { width: 100%; }
+
+.nav-links { display: flex; gap: 3rem; list-style: none; }
+
+.nav-links a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 4rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  transform: translateY(-50%);
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(5rem, 11vw, 11rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,168,67,0.06);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: driftRight 20s ease-in-out infinite alternate;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+@keyframes driftRight {
+  from { transform: translateY(-50%) translateX(-2%); }
+  to { transform: translateY(-50%) translateX(2%); }
+}
+
+.hero-line {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  margin-bottom: 2rem;
+  animation: lineGrow 1.2s 0.5s both;
+}
+
+@keyframes lineGrow {
+  from { height: 0; opacity: 0; }
+  to { height: 80px; opacity: 1; }
+}
+
+.hero-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlide 0.8s 0.8s forwards;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-name-wrap {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.hero-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  color: var(--text);
+  display: block;
+  opacity: 0;
+  animation: nameReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  text-transform: uppercase;
+}
+
+.hero-name:nth-child(1) { animation-delay: 1s; }
+.hero-name:nth-child(2) { animation-delay: 1.15s; color: var(--gold); }
+
+@keyframes nameReveal {
+  from { opacity: 0; transform: translateY(100%) skewY(3deg); }
+  to { opacity: 1; transform: translateY(0) skewY(0deg); }
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  opacity: 0;
+  animation: fadeSlide 0.8s 1.8s forwards;
+}
+
+.hero-stat {
+  border-left: 1px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 1px; height: 0;
+  background: var(--gold);
+  transition: height 0.5s;
+}
+
+.hero-stat:hover::before { height: 100%; }
+
+.hero-stat-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+.hero-stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+.hero-contact-strip {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  animation: fadeSlide 0.8s 2s forwards;
+}
+
+.hero-contact-strip a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: color 0.3s;
+}
+
+.hero-contact-strip a .arrow { color: var(--gold); transition: transform 0.3s; }
+.hero-contact-strip a:hover { color: var(--gold2); }
+.hero-contact-strip a:hover .arrow { transform: translateX(4px); }
+
+/* SECTION BASE */
+.section {
+  padding: 8rem 4rem;
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.section-num {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(212,168,67,0.3);
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 0;
+  background: var(--surface);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.marquee-item span { color: var(--gold); font-size: 0.5rem; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* EXPERIENCE */
+.exp-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.exp-sidebar {
+  border-right: 1px solid var(--border);
+  padding: 3rem;
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+
+.exp-company-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.exp-company-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.exp-company-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.exp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--gold);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.exp-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.exp-main { padding: 3rem; }
+
+.exp-loc {
+  margin-bottom: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.exp-loc:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.exp-loc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.exp-loc-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--gold2);
+}
+
+.exp-loc-period {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: right;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem;
+}
+
+.exp-cat {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.2rem;
+}
+
+.exp-items { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.exp-item {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #b8b4ac;
+  position: relative;
+  padding-left: 0;
+  transition: color 0.3s;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+}
+
+.exp-item:hover { color: var(--text); }
+
+.exp-item-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.65em;
+}
+
+/* EXPERTISE CARDS */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.exp-card {
+  background: var(--bg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+
+.exp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(212,168,67,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.exp-card:hover { background: #0e0e14; }
+.exp-card:hover::before { opacity: 1; }
+
+.exp-card-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  color: rgba(212,168,67,0.07);
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  transition: color 0.4s;
+}
+
+.exp-card:hover .exp-card-num { color: rgba(212,168,67,0.12); }
+
+.exp-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.exp-card:hover .exp-card-icon { transform: scale(1.15) rotate(-5deg); }
+
+.exp-card-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--gold2);
+}
+
+.exp-card-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+/* SKILLS */
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.skill-group-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.8rem;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.tag {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  color: var(--muted);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tag:hover { color: var(--bg); border-color: var(--gold); }
+.tag:hover::before { transform: translateX(0); }
+.tag span { position: relative; z-index: 1; }
+
+.lang-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.lang-item {}
+
+.lang-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.lang-track {
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: visible;
+}
+
+.lang-fill {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  width: 0;
+  transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.lang-fill::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold2);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+/* PROJECTS */
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.proj-card {
+  border: 1px solid var(--border);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s, transform 0.4s;
+}
+
+.proj-card:hover {
+  border-color: rgba(212,168,67,0.4);
+  transform: translateY(-4px);
+}
+
+.proj-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(212,168,67,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.proj-card:hover .proj-card-glow { opacity: 1; }
+
+.proj-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5rem;
+  color: rgba(212,168,67,0.06);
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 2rem;
+}
+
+.proj-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.proj-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.proj-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+/* EDUCATION */
+.edu-stack {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+
+.edu-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+
+.edu-row:last-child { border-bottom: none; }
+.edu-row:hover { background: var(--surface); }
+
+.edu-row::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edu-row:hover::after { width: 100%; }
+
+.edu-left {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.edu-year {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.edu-degree {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.edu-right { padding: 2.5rem; }
+
+.edu-school { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+
+.edu-hi {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: #9a9690;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  align-items: flex-start;
+}
+
+.edu-hi::before { content: '◆'; color: var(--gold); font-size: 0.45rem; margin-top: 0.45em; flex-shrink: 0; }
+
+/* FOOTER */
+footer {
+  padding: 5rem 4rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: 'RITESH NANDA';
+  position: absolute;
+  bottom: -2rem; left: -1%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,168,67,0.05);
+  pointer-events: none;
+  letter-spacing: 0.02em;
+}
+
+.footer-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-headline {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.75rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: right;
+}
+
+.footer-contacts a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+}
+
+.footer-contacts a:hover { color: var(--gold); }
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* GLITCH */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+.glitch::before {
+  color: var(--ember);
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  animation: glitch1 4s infinite;
+  opacity: 0;
+}
+
+.glitch::after {
+  color: #4af;
+  clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+  animation: glitch2 4s infinite;
+  opacity: 0;
+}
+
+@keyframes glitch1 {
+  0%, 92%, 100% { opacity: 0; transform: none; }
+  93% { opacity: 0.6; transform: translateX(-3px); }
+  95% { opacity: 0.6; transform: translateX(3px); }
+  97% { opacity: 0; transform: none; }
+}
+
+@keyframes glitch2 {
+  0%, 92%, 100% { opacity: 0; transform: none; }
+  94% { opacity: 0.6; transform: translateX(3px); }
+  96% { opacity: 0.6; transform: translateX(-3px); }
+  98% { opacity: 0; transform: none; }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 2rem; }
+  .hero { padding: 0 2rem 4rem; }
+  .hero-bg-text { display: none; }
+  .hero-bottom { grid-template-columns: 1fr 1fr; }
+  .section { padding: 5rem 2rem; }
+  .exp-container { grid-template-columns: 1fr; }
+  .exp-sidebar { position: static; border-right: none; border-bottom: 1px solid var(--border); }
+  .expertise-grid { grid-template-columns: 1fr 1fr; }
+  .skills-layout { grid-template-columns: 1fr; }
+  .edu-row { grid-template-columns: 1fr; }
+  .edu-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .proj-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; }
+  .footer-contacts { text-align: left; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- GRAIN -->
+<div class="grain"></div>
+
+<!-- CANVAS -->
+<canvas id="bg-canvas"></canvas>
+
+<div class="wrapper">
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">R·Nanda</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">SUPPLY CHAIN</div>
+  <div class="hero-line"></div>
+  <div class="hero-tag">// Operations & Supply Chain Leader · Aluminium Industry</div>
+
+  <div class="hero-name-wrap">
+    <span class="hero-name glitch" data-text="RITESH">RITESH</span>
+  </div>
+  <div class="hero-name-wrap">
+    <span class="hero-name glitch" data-text="NANDA" style="color:var(--gold)">NANDA</span>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-stat">
+      <span class="hero-stat-num counter" data-target="3">0</span><span class="hero-stat-num" style="color:var(--muted);font-size:1rem">+</span>
+      <div class="hero-stat-label">Years at Vedanta</div>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num counter" data-target="500">0</span><span class="hero-stat-num" style="color:var(--muted);font-size:1rem">+</span>
+      <div class="hero-stat-label">Personnel Managed</div>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num counter" data-target="40">0</span><span class="hero-stat-num" style="color:var(--muted);font-size:1rem">+</span>
+      <div class="hero-stat-label">Heavy Equipment Units</div>
+    </div>
+  </div>
+
+  <div class="hero-contact-strip">
+    <a href="mailto:riteshnanda31@gmail.com"><span class="arrow">→</span> riteshnanda31@gmail.com</a>
+    <a href="tel:+917008335110"><span class="arrow">→</span> +91 7008335110</a>
+    <a href="#"><span class="arrow">→</span> Jharsuguda, Odisha</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">SUPPLY CHAIN MANAGEMENT <span>◆</span></div>
+    <div class="marquee-item">STRATEGIC SOURCING <span>◆</span></div>
+    <div class="marquee-item">CONTRACT MANAGEMENT <span>◆</span></div>
+    <div class="marquee-item">VEDANTA ALUMINIUM <span>◆</span></div>
+    <div class="marquee-item">LME PRICING STRATEGY <span>◆</span></div>
+    <div class="marquee-item">SEZ COMPLIANCE <span>◆</span></div>
+    <div class="marquee-item">SAP MM · ARIBA <span>◆</span></div>
+    <div class="marquee-item">OPERATIONS EXCELLENCE <span>◆</span></div>
+    <div class="marquee-item">ISRO AWARD RECIPIENT <span>◆</span></div>
+    <div class="marquee-item">GOLD MEDALLIST <span>◆</span></div>
+    <!-- duplicate for loop -->
+    <div class="marquee-item">SUPPLY CHAIN MANAGEMENT <span>◆</span></div>
+    <div class="marquee-item">STRATEGIC SOURCING <span>◆</span></div>
+    <div class="marquee-item">CONTRACT MANAGEMENT <span>◆</span></div>
+    <div class="marquee-item">VEDANTA ALUMINIUM <span>◆</span></div>
+    <div class="marquee-item">LME PRICING STRATEGY <span>◆</span></div>
+    <div class="marquee-item">SEZ COMPLIANCE <span>◆</span></div>
+    <div class="marquee-item">SAP MM · ARIBA <span>◆</span></div>
+    <div class="marquee-item">OPERATIONS EXCELLENCE <span>◆</span></div>
+    <div class="marquee-item">ISRO AWARD RECIPIENT <span>◆</span></div>
+    <div class="marquee-item">GOLD MEDALLIST <span>◆</span></div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-label reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-container reveal">
+    <div class="exp-sidebar">
+      <div class="exp-company-tag">// Current Employer</div>
+      <div class="exp-company-name">VEDANTA<br>LIMITED</div>
+      <div class="exp-company-sub">Aluminium Business<br>July 2022 – Present</div>
+      <div class="exp-badge">Active</div>
+    </div>
+    <div class="exp-main">
+      <div class="exp-loc">
+        <div class="exp-loc-header">
+          <div>
+            <div class="exp-loc-name">BALCO · Korba</div>
+            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.2rem;">Bharat Aluminium Company · Chhattisgarh</div>
+          </div>
+          <div class="exp-loc-period">Jul 2022 – Nov 2023</div>
+        </div>
+        <div class="exp-cat">// Supply Chain Management</div>
+        <div class="exp-items">
+          <div class="exp-item"><div class="exp-item-dot"></div>Led international procurement across China and Europe using e-auction strategies (Japanese, English, Dutch), managing a strategic vendor base with rigorous due diligence and contingency planning.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Achieved major cost savings by linking master alloy pricing to LME indices, leveraging spot buying based on market trends, and securing long-term contracts through zero-base costing.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Managed monthly import planning aligned with production and storage needs; coordinated TT and CAD payments with treasury to optimize gross working capital utilization.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Managed SEZ compliance including Bill of Entry documentation for home consumption, warehousing, and ex-bond. Administered RODTEP and EPCG license utilization for duty optimization.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Coordinated international cargo under CIF Incoterms and domestic deliveries via DAP; liaised with CHAs and Shared Service Centres for seamless logistics execution.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Enforced quality checks via Load Port and Dispatch Port Testing with contractual penalty clauses for quality deviations.</div>
+        </div>
+      </div>
+
+      <div class="exp-loc">
+        <div class="exp-loc-header">
+          <div>
+            <div class="exp-loc-name">VAL-J · Jharsuguda</div>
+            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.2rem;">Vedanta Aluminium Limited · Odisha</div>
+          </div>
+          <div class="exp-loc-period">Dec 2023 – Present</div>
+        </div>
+        <div class="exp-cat">// Services & Operations Management</div>
+        <div class="exp-items">
+          <div class="exp-item"><div class="exp-item-dot"></div>Finalised end-to-end manpower contract for pot support services — 500+ personnel deployed across multiple shifts on MND basis, ensuring compliance, productivity, and cost control.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Executed material handling operations with 35 heavy vehicles (Hydra 1st & 2nd Gen, Trucks, Trailers, Tippers, EV forklifts) and 250 manpower with optimized turn-around time.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Managed equipment hiring contract for 40+ heavy equipment units including Loaders, Mobile Cranes, Industrial Sweepers, and IVC vehicles on monthly hiring model.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Leading Carbon SBU E2E O&M contract covering 1300+ personnel under a strategic business partner model on a per-unit production payment model ensuring productivity and quality targets.</div>
+          <div class="exp-item"><div class="exp-item-dot"></div>Finalised hazardous waste (Class-4) disposal contracts ensuring full CTO compliance through TSDF-approved vendors per government notification.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section" id="expertise">
+  <div class="section-label reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Areas of Expertise</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="expertise-grid reveal">
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">01</div>
+      <span class="exp-card-icon">⚙️</span>
+      <div class="exp-card-name">Strategic Sourcing</div>
+      <div class="exp-card-desc">International procurement across China & Europe. E-auction mastery in Japanese, English and Dutch models. Vendor risk management and due diligence.</div>
+    </div>
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">02</div>
+      <span class="exp-card-icon">📦</span>
+      <div class="exp-card-name">Import & Logistics</div>
+      <div class="exp-card-desc">End-to-end import operations under CIF and DAP Incoterms. SEZ compliance, BOE documentation and customs handling agent coordination.</div>
+    </div>
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">03</div>
+      <span class="exp-card-icon">📝</span>
+      <div class="exp-card-name">Contract Management</div>
+      <div class="exp-card-desc">Complex service portfolio management — O&M, manpower, equipment hiring and hazardous waste contracts under NTP framework and strategic partner models.</div>
+    </div>
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">04</div>
+      <span class="exp-card-icon">💰</span>
+      <div class="exp-card-name">Cost Optimization</div>
+      <div class="exp-card-desc">LME-linked pricing strategies, zero-base costing, spot buying, long-term contract structuring and deep spend analysis for industrial raw materials.</div>
+    </div>
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">05</div>
+      <span class="exp-card-icon">🏭</span>
+      <div class="exp-card-name">Operations Management</div>
+      <div class="exp-card-desc">Large-scale industrial operations for 1300+ personnel. Multi-shift workforce management and heavy equipment fleet coordination in aluminium production.</div>
+    </div>
+    <div class="exp-card" onmousemove="cardGlow(this,event)">
+      <div class="exp-card-num">06</div>
+      <span class="exp-card-icon">✅</span>
+      <div class="exp-card-name">Regulatory Compliance</div>
+      <div class="exp-card-desc">SEZ compliance, EPCG & RODTEP license management, hazardous waste regulations (CTO) and SAP-integrated financial documentation and reporting.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-label reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-layout reveal">
+    <div>
+      <div class="skill-group-title">// Technical Tools</div>
+      <div class="tags" style="margin-bottom:2.5rem">
+        <div class="tag"><span>Excel</span></div>
+        <div class="tag"><span>PowerPoint</span></div>
+        <div class="tag"><span>Power BI</span></div>
+        <div class="tag"><span>Tableau</span></div>
+        <div class="tag"><span>SAP MM</span></div>
+        <div class="tag"><span>SAP ARIBA</span></div>
+      </div>
+      <div class="skill-group-title">// Core Competencies</div>
+      <div class="tags">
+        <div class="tag"><span>Leadership</span></div>
+        <div class="tag"><span>Communication</span></div>
+        <div class="tag"><span>Decision Making</span></div>
+        <div class="tag"><span>Presentation</span></div>
+        <div class="tag"><span>Analytical Reasoning</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">// Languages</div>
+      <div class="lang-row">
+        <div class="lang-item">
+          <div class="lang-top"><span>English</span><span>Full Professional Proficiency</span></div>
+          <div class="lang-track"><div class="lang-fill" data-width="95"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-top"><span>Hindi</span><span>Bilingual Proficiency</span></div>
+          <div class="lang-track"><div class="lang-fill" data-width="100"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-top"><span>Odia</span><span>Bilingual Proficiency</span></div>
+          <div class="lang-track"><div class="lang-fill" data-width="100"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-label reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Key Projects</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="proj-grid reveal">
+    <div class="proj-card">
+      <div class="proj-card-glow"></div>
+      <div class="proj-num">01</div>
+      <div class="proj-tag">// SAP Integration · Finance</div>
+      <div class="proj-name">BOE Payment Migration to SAP</div>
+      <div class="proj-desc">Led migration of Bills of Entry financial transactions from legacy systems to SAP — streamlining accounting processes, improving data accuracy, transparency and reporting efficiency across import operations.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-card-glow"></div>
+      <div class="proj-num">02</div>
+      <div class="proj-tag">// Automation · ITMS</div>
+      <div class="proj-name">Automated Vehicle Entry System</div>
+      <div class="proj-desc">Designed end-to-end blueprint for an automated vehicle entry-exit and traffic management system for spares, consumables and raw materials — reducing manpower dependency and ensuring reliable material flow.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-label reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-stack reveal">
+    <div class="edu-row">
+      <div class="edu-left">
+        <div class="edu-year">2018 – 2022</div>
+        <div class="edu-degree">B.Tech<br>Mechanical<br>Engineering</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-school">Veer Surendra Sai University of Technology, Burla · Sambalpur, Odisha</div>
+        <div class="edu-hi">CGPA 8.2 — Gold Medallist for Best All-Rounder Graduate in Engineering</div>
+        <div class="edu-hi">Letter of Appreciation from ISRO — India's first student body to develop a fully-fledged satellite launch vehicle system (VSLV); signed R&D MOU with ISRO</div>
+        <div class="edu-hi">Finalist — L&T Techgium 2022 · Finalist — Tata Crucible 2020</div>
+        <div class="edu-hi">2nd Runner's Up — L&T Createch 2.0, 2020</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-left">
+        <div class="edu-year">2016 – 2017</div>
+        <div class="edu-degree">Higher Secondary (12th)<br>Science & Computer</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-school">Chinmaya Vidyalaya (E.M), Rourkela · Odisha</div>
+        <div class="edu-hi">Percentage: 85.8%</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-left">
+        <div class="edu-year">2014 – 2015</div>
+        <div class="edu-degree">Secondary (10th)<br>Science</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-school">Chinmaya Vidyalaya (E.M), Rourkela · Odisha</div>
+        <div class="edu-hi">Percentage: 94%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-label">// Available for opportunities</div>
+    <div class="footer-headline">LET'S<br>CONNECT</div>
+  </div>
+  <div class="footer-contacts">
+    <a href="mailto:riteshnanda31@gmail.com">riteshnanda31@gmail.com</a>
+    <a href="tel:+917008335110">+91 7008335110</a>
+    <a href="#">Jharsuguda, Odisha · India</a>
+  </div>
+</footer>
+
+</div><!-- /wrapper -->
+
+<script>
+// === CANVAS PARTICLES ===
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [], mouse = { x: -999, y: -999 };
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.2 + 0.2;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.alpha = Math.random() * 0.4 + 0.05;
+    this.gold = Math.random() > 0.7;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = this.gold
+      ? `rgba(212,168,67,${this.alpha})`
+      : `rgba(180,170,155,${this.alpha * 0.5})`;
+    ctx.fill();
+  }
+  update() {
+    // Mouse repulsion
+    const dx = this.x - mouse.x;
+    const dy = this.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 120) {
+      const force = (120 - dist) / 120;
+      this.vx += dx / dist * force * 0.4;
+      this.vy += dy / dist * force * 0.4;
+    }
+    this.vx *= 0.98;
+    this.vy *= 0.98;
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0) this.x = W;
+    if (this.x > W) this.x = 0;
+    if (this.y < 0) this.y = H;
+    if (this.y > H) this.y = 0;
+    this.draw();
+  }
+}
+
+// Lines between close particles
+function drawConnections() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 100) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(212,168,67,${(1 - d / 100) * 0.06})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  drawConnections();
+  particles.forEach(p => p.update());
+  requestAnimationFrame(animate);
+}
+animate();
+
+// === CURSOR ===
+const cursorEl = document.getElementById('cursor');
+const ringEl = document.getElementById('cursorRing');
+let cx = 0, cy = 0, rx = 0, ry = 0;
+
+window.addEventListener('mousemove', e => {
+  cx = e.clientX; cy = e.clientY;
+  mouse.x = cx; mouse.y = cy;
+});
+
+function animateCursor() {
+  cursorEl.style.left = cx + 'px';
+  cursorEl.style.top = cy + 'px';
+  rx += (cx - rx) * 0.12;
+  ry += (cy - ry) * 0.12;
+  ringEl.style.left = rx + 'px';
+  ringEl.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// === NAV SCROLL ===
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// === SCROLL REVEAL ===
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), 100);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revealObs.observe(el));
+
+// === COUNTER ANIMATION ===
+const counters = document.querySelectorAll('.counter');
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.target);
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const ease = 1 - Math.pow(1 - t, 4);
+        e.target.textContent = Math.floor(ease * target);
+        if (t < 1) requestAnimationFrame(tick);
+        else e.target.textContent = target;
+      }
+      requestAnimationFrame(tick);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObs.observe(c));
+
+// === LANGUAGE BAR ===
+const langEls = document.querySelectorAll('.lang-fill');
+const langObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      langEls.forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.lang-row').forEach(el => langObs.observe(el));
+
+// === CARD GLOW ===
+function cardGlow(el, e) {
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  el.style.setProperty('--mx', x + '%');
+  el.style.setProperty('--my', y + '%');
+}
+</script>
+</body>
+</html>
